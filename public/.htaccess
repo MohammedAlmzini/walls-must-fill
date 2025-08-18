@@ -1,0 +1,41 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    # Redirect root to English locale
+    RewriteCond %{REQUEST_URI} ^/$
+    RewriteRule ^$ /en [L,R=301]
+
+    # Redirect old routes to English locale
+    RewriteCond %{REQUEST_URI} ^/home$
+    RewriteRule ^home$ /en [L,R=301]
+
+    RewriteCond %{REQUEST_URI} ^/about$
+    RewriteRule ^about$ /en/about [L,R=301]
+
+    RewriteCond %{REQUEST_URI} ^/contact$
+    RewriteRule ^contact$ /en/contact [L,R=301]
+
+    RewriteCond %{REQUEST_URI} ^/cases$
+    RewriteRule ^cases$ /en/cases [L,R=301]
+
+    RewriteCond %{REQUEST_URI} ^/posts$
+    RewriteRule ^posts$ /en/posts [L,R=301]
+</IfModule>
