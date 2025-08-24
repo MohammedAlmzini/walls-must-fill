@@ -6,12 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use App\Models\ContactMessage;
+use App\Services\SEOService;
 
 class ContactController extends Controller
 {
     public function show()
     {
-        return view('contact');
+        $locale = session('locale', 'ar');
+        $seoMeta = SEOService::getPageMeta('contact', [], $locale);
+        return view('contact', compact('seoMeta'));
     }
 
     public function store(Request $request)
@@ -30,7 +33,6 @@ class ContactController extends Controller
         }
 
         try {
-            // خزّن الرسالة في قاعدة البيانات
             $msg = ContactMessage::create([
                 'name'    => $data['name'],
                 'email'   => $data['email'],
@@ -38,13 +40,11 @@ class ContactController extends Controller
                 'message' => $data['message'],
             ]);
 
-            // جهّز نص البريد
             $body = "اسم المُرسِل: {$data['name']}\n"
                 . "البريد: {$data['email']}\n"
                 . "الموضوع: {$data['subject']}\n\n"
                 . "الرسالة:\n{$data['message']}\n";
 
-            // محاولة إرسال بريد (اختياري)
             try {
                 $defaultMailer = config('mail.default');
                 $mailerConfig = $defaultMailer ? config("mail.mailers.$defaultMailer") : null;
@@ -56,11 +56,9 @@ class ContactController extends Controller
                     });
                 }
             } catch (\Throwable $mailError) {
-                // تسجيل خطأ البريد لكن لا نوقف العملية
                 Log::warning('Contact mail error: ' . $mailError->getMessage());
             }
 
-            // تسجيل الرسالة في السجل
             Log::info('[Contact] رسالة جديدة', [
                 'id' => $msg->id,
                 'name' => $data['name'],

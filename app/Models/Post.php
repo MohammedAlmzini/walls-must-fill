@@ -12,6 +12,11 @@ class Post extends Model
         'is_published','published_at','user_id'
     ];
 
+    protected $casts = [
+        'published_at' => 'datetime',
+        'is_published' => 'boolean',
+    ];
+
     protected static function booted() {
         static::creating(function ($post) {
             if (empty($post->slug)) {

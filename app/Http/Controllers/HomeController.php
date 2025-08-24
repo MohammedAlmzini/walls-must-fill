@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\AidCase;
 use App\Models\MainCampaign;
+use App\Services\SEOService;
 
 class HomeController extends Controller
 {
@@ -13,16 +14,14 @@ class HomeController extends Controller
         $casesCount = AidCase::count();
         $totalDonations = AidCase::sum('collected_amount');
         $completedActual = AidCase::where('is_completed', true)->count();
-        $completedDisplayed = $completedActual + 100; // إضافة 100 كما طلبت
+        $completedDisplayed = $completedActual + 100;
 
         $latestPosts = Post::where('is_published', true)->latest('published_at')->take(6)->get();
         $latestCases = AidCase::latest()->take(6)->get();
 
-        // الحملة الرئيسية لأيتام غزة
         $mainCampaign = MainCampaign::where('is_active', true)->first();
         
         if (!$mainCampaign) {
-            // بيانات افتراضية إذا لم توجد حملة
             $mainCampaign = (object) [
                 'title' => 'حملة إغاثة أيتام غزة',
                 'subtitle' => 'كن جزءاً من الأمل - ادعم أيتام غزة في محنتهم',
@@ -44,9 +43,15 @@ class HomeController extends Controller
             ];
         }
 
+        // SEO Meta - تحديد اللغة من الجلسة
+        $locale = session('locale', 'ar');
+        $seoMeta = SEOService::getPageMeta('home', [], $locale);
+        $structuredData = SEOService::generateStructuredData('organization');
+
         return view('home', compact(
             'casesCount', 'totalDonations', 'completedDisplayed',
-            'latestPosts', 'latestCases', 'mainCampaign'
+            'latestPosts', 'latestCases', 'mainCampaign',
+            'seoMeta', 'structuredData'
         ));
     }
 }

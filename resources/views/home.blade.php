@@ -194,51 +194,51 @@
         position: relative;
         z-index: 1;
     }
-            .stat-label {
-            font-size: 10px;
-            opacity: 0.9;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-            color: rgba(255,255,255,0.9);
-            position: relative;
-            z-index: 1;
-        }
+    .stat-label {
+        font-size: 10px;
+        opacity: 0.9;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.9);
+        position: relative;
+        z-index: 1;
+    }
 
-        /* Responsive Design for Campaign Stats */
-        @media (max-width: 768px) {
-            .campaign-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-            }
-            .stat-item {
-                padding: 16px 10px;
-            }
-            .stat-value {
-                font-size: 20px;
-            }
-            .stat-label {
-                font-size: 9px;
-                letter-spacing: 0.5px;
-            }
+    /* Responsive Design for Campaign Stats */
+    @media (max-width: 768px) {
+        .campaign-stats {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
         }
+        .stat-item {
+            padding: 16px 10px;
+        }
+        .stat-value {
+            font-size: 20px;
+        }
+        .stat-label {
+            font-size: 9px;
+            letter-spacing: 0.5px;
+        }
+    }
 
-        @media (max-width: 480px) {
-            .campaign-stats {
-                grid-template-columns: 1fr;
-                gap: 10px;
-            }
-            .stat-item {
-                padding: 14px 12px;
-            }
-            .stat-value {
-                font-size: 18px;
-            }
-            .stat-label {
-                font-size: 8px;
-                letter-spacing: 0.3px;
-            }
+    @media (max-width: 480px) {
+        .campaign-stats {
+            grid-template-columns: 1fr;
+            gap: 10px;
         }
+        .stat-item {
+            padding: 14px 12px;
+        }
+        .stat-value {
+            font-size: 18px;
+        }
+        .stat-label {
+            font-size: 8px;
+            letter-spacing: 0.3px;
+        }
+    }
     .urgent-needs {
         margin: 24px 0;
         padding: 20px;
@@ -290,6 +290,7 @@
         position: relative;
         overflow: hidden;
         border: none;
+        cursor: pointer;
     }
     .btn-donate::before {
         content: '';
@@ -318,6 +319,7 @@
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255,255,255,0.2);
         transition: all 0.3s ease;
+        cursor: pointer;
     }
     .btn-share:hover {
         background: rgba(255,255,255,0.2);
@@ -593,307 +595,12 @@
             height: 150px;
         }
     }
-
-    /* ستايلات صفحة الحملة الرئيسية */
-    .main-campaign {
-        background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
-        border-radius: 20px;
-        overflow: hidden;
-        margin: 60px 0 40px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        position: relative;
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .campaign-content {
-        position: relative;
-        z-index: 1;
-        color: white;
-        padding: 32px;
-    }
-
-    .campaign-header {
-        text-align: center;
-        margin-bottom: 32px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .campaign-badge {
-        display: inline-flex;
-        align-items: center;
-        background: linear-gradient(135deg, #ef4444, #dc2626);
-        padding: 8px 20px;
-        border-radius: 50px;
-        font-size: 13px;
-        font-weight: 700;
-        margin-bottom: 16px;
-        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
-        animation: pulse 2s infinite;
-    }
-
-    .campaign-title {
-        font-size: 36px;
-        font-weight: 900;
-        line-height: 1.2;
-        margin: 0 0 12px;
-        background: linear-gradient(45deg, #ffffff, #f0f9ff);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    .campaign-subtitle {
-        font-size: 18px;
-        opacity: 0.9;
-        margin: 0 0 16px;
-        line-height: 1.5;
-    }
-
-    .campaign-grid {
-        display: grid;
-        grid-template-columns: 1fr 400px;
-        gap: 40px;
-        align-items: start;
-    }
-
-    .campaign-description {
-        font-size: 16px;
-        opacity: 0.85;
-        margin: 0 0 24px;
-        line-height: 1.6;
-    }
-
-    .progress-section {
-        background: rgba(255,255,255,0.08);
-        padding: 28px;
-        border-radius: 16px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .progress-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 12px;
-    }
-
-    .progress-amount {
-        font-weight: 900;
-        font-size: 24px;
-        color: #10b981;
-    }
-
-    .progress-goal {
-        opacity: 0.8;
-        font-size: 14px;
-    }
-
-    .progress-bar {
-        background: rgba(255,255,255,0.15);
-        height: 10px;
-        border-radius: 5px;
-        overflow: hidden;
-        margin: 16px 0;
-    }
-
-    .progress-fill {
-        height: 100%;
-        background: linear-gradient(90deg, #10b981, #059669);
-        border-radius: 5px;
-        transition: width 2s ease;
-        position: relative;
-    }
-
-    .progress-percentage {
-        text-align: center;
-        margin: 12px 0;
-        font-size: 16px;
-        font-weight: 700;
-        color: #10b981;
-    }
-
-    .campaign-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-        margin: 24px 0;
-    }
-
-    .stat-item {
-        text-align: center;
-        padding: 20px 12px;
-        background: rgba(255,255,255,0.08);
-        border-radius: 16px;
-        border: 1px solid rgba(255,255,255,0.15);
-        backdrop-filter: blur(10px);
-        transition: all 0.3s ease;
-    }
-
-    .stat-item:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(0,0,0,0.15);
-        border-color: rgba(255,255,255,0.25);
-    }
-
-    .stat-value {
-        font-size: 24px;
-        font-weight: 900;
-        margin: 0 0 8px;
-        color: #10b981;
-    }
-
-    .stat-label {
-        font-size: 10px;
-        opacity: 0.9;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 600;
-        color: rgba(255,255,255,0.9);
-    }
-
-    .urgent-needs {
-        margin: 24px 0;
-        padding: 20px;
-        background: rgba(255,255,255,0.05);
-        border-radius: 12px;
-        border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .needs-title {
-        margin: 0 0 12px;
-        font-size: 16px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
-
-    .needs-list {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-    }
-
-    .need-item {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        opacity: 0.9;
-        padding: 4px 0;
-    }
-
-    .need-item::before {
-        content: '💚';
-        margin-left: 8px;
-        font-size: 12px;
-    }
-
-    .campaign-cta {
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        margin-top: 24px;
-    }
-
-    .btn-donate {
-        background: linear-gradient(135deg, #dc2626, #b91c1c);
-        color: white;
-        padding: 16px 32px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 16px;
-        transition: all 0.3s ease;
-        box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
-        position: relative;
-        overflow: hidden;
-        border: none;
-        cursor: pointer;
-    }
-
-    .btn-donate:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 12px 32px rgba(220, 38, 38, 0.4);
-    }
-
-    .btn-share {
-        background: rgba(255,255,255,0.1);
-        color: white;
-        padding: 16px 24px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: 600;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255,255,255,0.2);
-        transition: all 0.3s ease;
-        cursor: pointer;
-    }
-
-    .btn-share:hover {
-        background: rgba(255,255,255,0.2);
-        transform: translateY(-1px);
-    }
-
-    .urgency-notice {
-        margin-top: 20px;
-        padding: 16px;
-        background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.1));
-        border-radius: 12px;
-        text-align: center;
-        border: 1px solid rgba(239, 68, 68, 0.3);
-    }
-
-    .urgency-notice-title {
-        font-size: 14px;
-        font-weight: 700;
-        margin-bottom: 8px;
-        color: #fca5a5;
-    }
-
-    .urgency-notice-text {
-        font-size: 12px;
-        opacity: 0.9;
-    }
-
-    @media (max-width: 968px) {
-        .campaign-grid {
-            grid-template-columns: 1fr;
-            gap: 24px;
-        }
-        .campaign-content {
-            padding: 24px;
-        }
-        .campaign-title {
-            font-size: 28px;
-        }
-        .campaign-stats {
-            grid-template-columns: repeat(3, 1fr);
-        }
-        .needs-list {
-            grid-template-columns: 1fr;
-        }
-        .campaign-cta {
-            flex-direction: column;
-            align-items: stretch;
-        }
-    }
-
-    @media (max-width: 640px) {
-        .main-campaign {
-            margin: 40px -16px;
-            border-radius: 0;
-        }
-        .campaign-stats {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
 </style>
 
     <div class="container hero">
         <div>
-            <h1 class="hero-title">STOP THE<br>GENOCIDE</h1>
-            <p class="hero-sub">Support Palestine and donate to humanitarian causes</p>
+            <h1 class="hero-title">{{ __('app.hero.title_line1') }}<br>{{ __('app.hero.title_line2') }}</h1>
+            <p class="hero-sub">{{ __('app.hero.subtitle') }}</p>
             <div class="cta-row">
                 <a class="btn btn-primary" href="{{ route('cases.index') }}">{{ __('app.hero.explore_appeals') }}</a>
                 <a class="btn btn-ghost" href="{{ route('posts.index') }}">{{ __('app.hero.pulse_cause') }}</a>
@@ -911,18 +618,18 @@
     <div class="stats-card" aria-label="site stats">
         <div class="stat">
             <div class="v">{{ number_format($casesCount + 1000) }}</div>
-            <div class="l">متبرع</div>
-            <div class="stat-description">إجمالي المتبرعين + 1000</div>
+            <div class="l">{{ __('app.stats.donors') }}</div>
+            <div class="stat-description">{{ __('app.stats.total_donors') }}</div>
         </div>
         <div class="stat">
             <div class="v">{{ number_format($casesCount) }}</div>
-            <div class="l">حالة تحتاج مساعدة</div>
-            <div class="stat-description">الحالات التي تحتاج مساعدة</div>
+            <div class="l">{{ __('app.stats.cases_need_help') }}</div>
+            <div class="stat-description">{{ __('app.stats.cases_description') }}</div>
             </div>
         <div class="stat">
             <div class="v">${{ number_format($totalDonations, 0) }}</div>
-            <div class="l">إجمالي التبرعات</div>
-            <div class="stat-description">المبلغ المجموع بالدولار</div>
+            <div class="l">{{ __('app.stats.total_donations') }}</div>
+            <div class="stat-description">{{ __('app.stats.amount_description') }}</div>
         </div>
     </div>
 
@@ -932,7 +639,7 @@
             <div class="campaign-content">
                 <div class="campaign-header">
                     <div class="campaign-badge">
-                        🚨 حملة عاجلة
+                        🚨 {{ __('app.campaign.urgent_campaign') }}
                     </div>
                     <h2 class="campaign-title">{{ $mainCampaign->title }}</h2>
                     <p class="campaign-subtitle">{{ $mainCampaign->subtitle }}</p>
@@ -944,7 +651,7 @@
                         
                         <div class="urgent-needs">
                             <h4 class="needs-title">
-                                🎯 الاحتياجات الأساسية العاجلة
+                                🎯 {{ __('app.campaign.urgent_needs_title') }}
                             </h4>
                             <div class="needs-list">
                                 @foreach($mainCampaign->urgent_needs as $need)
@@ -955,10 +662,10 @@
 
                         <div class="campaign-cta">
                             <button type="button" class="btn-donate" onclick="showDonationModal()">
-                                💝 تبرع الآن
+                                💝 {{ __('app.campaign.donate_now') }}
                             </button>
                             <a href="{{ route('cases.index') }}" class="btn-share">
-                                📢 شارك الحملة
+                                📢 {{ __('app.campaign.share_campaign') }}
                             </a>
                         </div>
                     </div>
@@ -966,7 +673,7 @@
                     <div class="progress-section">
                         <div class="progress-header">
                             <span class="progress-amount">${{ number_format($mainCampaign->collected_amount) }}</span>
-                            <span class="progress-goal">من ${{ number_format($mainCampaign->goal_amount) }}</span>
+                            <span class="progress-goal">{{ __('app.campaign.from') }} ${{ number_format($mainCampaign->goal_amount) }}</span>
                         </div>
                         
                         <div class="progress-bar">
@@ -974,30 +681,30 @@
                         </div>
                         
                         <div class="progress-percentage">
-                            {{ $mainCampaign->percentage }}% من الهدف المطلوب
+                            {{ $mainCampaign->percentage }}% {{ __('app.campaign.goal_percentage') }}
                         </div>
 
                         <div class="campaign-stats">
                             <div class="stat-item">
                                 <div class="stat-value">{{ number_format($mainCampaign->supporters_count) }}</div>
-                                <div class="stat-label">متبرع</div>
+                                <div class="stat-label">{{ __('app.campaign.supporters') }}</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stat-value">{{ $mainCampaign->days_left }}</div>
-                                <div class="stat-label">يوم متبقي</div>
+                                <div class="stat-label">{{ __('app.campaign.days_left') }}</div>
                             </div>
                             <div class="stat-item">
                                 <div class="stat-value">${{ number_format($mainCampaign->goal_amount - $mainCampaign->collected_amount) }}</div>
-                                <div class="stat-label">مطلوب</div>
+                                <div class="stat-label">{{ __('app.campaign.required') }}</div>
                             </div>
                         </div>
 
                         <div class="urgency-notice">
                             <div class="urgency-notice-title">
-                                ⏰ كل دقيقة تأخير تعني معاناة أكثر
+                                ⏰ {{ __('app.campaign.urgency_title') }}
                             </div>
                             <div class="urgency-notice-text">
-                                تبرعك اليوم يصل فوراً للمحتاجين
+                                {{ __('app.campaign.urgency_text') }}
                             </div>
                         </div>
                     </div>
@@ -1008,8 +715,8 @@
 
     <section class="grid grid-2" style="align-items:start;margin-top:40px">
         <div>
-            <h2 class="section-title">SHARE OUR CAUSES</h2>
-            <p class="lead">Your donation can make a difference. Help us provide aid to those in need and support the people of Palestine.</p>
+            <h2 class="section-title">{{ __('app.sections.share_causes') }}</h2>
+            <p class="lead">{{ __('app.sections.share_description') }}</p>
             <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
                 <a class="btn btn-dark" href="{{ route('cases.index') }}">{{ __('app.buttons.all_appeals') }}</a>
                 <a class="btn btn-green" href="{{ route('posts.index') }}">{{ __('app.buttons.all_posts') }}</a>
@@ -1025,7 +732,7 @@
                     <div class="p">
                         <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
                             <h3 style="margin:0;font-size:22px;font-weight:900">{{ strtoupper(__('app.nav.cases')) }}</h3>
-                            <span class="badge">{{ __('app.amount_of.collected') }}: ${{ number_format($c->collected_amount,2) }}</span>
+                            <span class="badge">{{ __('app.amount.collected') }}: ${{ number_format($c->collected_amount,2) }}</span>
                         </div>
                         <p class="muted" style="margin:6px 0 12px">{{ $c->title }}</p>
                         <a class="btn btn-green" href="{{ route('cases.show', $c->slug) }}">{{ __('app.buttons.support_now') }}</a>
@@ -1047,7 +754,7 @@
                     @endif
                     <div class="p">
                         <h3 style="margin:0 0 6px;font-size:18px">{{ $case->title }}</h3>
-                        <p class="muted" style="margin:0">{{ __('app.amount_of.collected') }}: ${{ number_format($case->collected_amount,2) }} {{ __('app.amount_of.from') }} {{ $case->goal_amount ? '$'.number_format($case->goal_amount,2) : __('app.amount_of.no_goal_set') }}</p>
+                        <p class="muted" style="margin:0">{{ __('app.amount.collected') }}: ${{ number_format($case->collected_amount,2) }} {{ __('app.amount.from') }} {{ $case->goal_amount ? '$'.number_format($case->goal_amount,2) : __('app.amount.no_goal_set') }}</p>
                     </div>
                 </article>
             @empty
@@ -1105,7 +812,7 @@
                             @else
                                 <div class="qr-placeholder">
                                     <i class="fas fa-qrcode"></i>
-                                    <p>QR Code غير متوفر</p>
+                                    <p>{{ __('app.support.qr.not_available') }}</p>
                                 </div>
                             @endif
                         </div>

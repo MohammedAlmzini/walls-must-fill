@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Post;
 use App\Models\AidCase;
 use App\Models\MainCampaign;
+use App\Models\SEOSetting;
 
 class DatabaseSeeder extends Seeder
 {
@@ -60,6 +61,11 @@ class DatabaseSeeder extends Seeder
             'is_active' => true,
             'start_date' => now(),
             'end_date' => now()->addDays(45),
+        ]);
+
+        // إنشاء إعدادات SEO الافتراضية
+        $this->call([
+            \Database\Seeders\SEOSettingSeeder::class,
         ]);
     }
 }

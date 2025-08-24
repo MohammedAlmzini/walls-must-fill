@@ -12,6 +12,12 @@ class AidCase extends Model
         'video_url','whatsapp_number','goal_amount','collected_amount','is_completed'
     ];
 
+    protected $casts = [
+        'is_completed' => 'boolean',
+        'goal_amount' => 'decimal:2',
+        'collected_amount' => 'decimal:2',
+    ];
+
     protected static function booted() {
         static::creating(function ($case) {
             if (empty($case->slug)) {

@@ -29,6 +29,14 @@
         img{max-width:100%;display:block}
         .container{max-width:var(--container);margin:0 auto;padding:0 16px}
 
+
+        .logo {
+    width: 60px;      /* العرض */
+    height: auto;     /* يحافظ على النسبة */
+    display: inline-block;
+    vertical-align: middle; /* يخليها بمحاذاة النص إذا بجانبه */
+}
+
         /* Header */
         .site-header{
             background:var(--brand-red);
@@ -54,6 +62,23 @@
             color:#fff;font-weight:700;opacity:.9
         }
         .nav a.active,.nav a:hover{opacity:1;text-decoration:none;border-bottom:2px solid #fff}
+        
+        /* Language Switcher */
+        .lang-switch{
+            display:flex;align-items:center;gap:8px
+        }
+        .current-lang{
+            font-size:14px;opacity:.8;font-weight:600
+        }
+        .switch-lang{
+            background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+            padding:6px 12px;border-radius:6px;font-size:13px;font-weight:600;
+            transition:all .2s ease
+        }
+        .switch-lang:hover{
+            background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.3);
+            text-decoration:none;transform:translateY(-1px)
+        }
         .lang-switch{
             display:flex;align-items:center;gap:10px;color:#fff
         }
@@ -221,29 +246,30 @@
     <header class="site-header">
         <div class="container topbar">
             <div class="brand">
-                <span class="logo">W</span>
-                <span class="name">{{ __('app.site_name') }}</span>
+            <img src="/storage/img/walls_logo.png" alt="Walls Must Logo" class="logo">
+            <span class="name">{{ __('app.site_name') }}</span>
             </div>
             <nav class="nav">
 @php
 $currentLocale = app()->getLocale();
 $homeUrl = url($currentLocale); // ينتج /en أو /ar
 @endphp
-<a href="{{ $homeUrl }}" class="{{ request()->is($currentLocale) || request()->is($currentLocale.'/*') ? 'active' : '' }}">{{ __('app.nav.home') }}</a>                <a href="{{ route('cases.index') }}" class="{{ request()->is('*cases*') ? 'active' : '' }}">{{ __('app.nav.cases') }}</a>
-                <a href="{{ route('posts.index') }}" class="{{ request()->is('*posts*') ? 'active' : '' }}">{{ __('app.nav.blog') }}</a>
-                <a href="{{ route('about') }}" class="{{ request()->is('*about*') ? 'active' : '' }}">{{ __('app.nav.about') }}</a>
+<a href="{{ $homeUrl }}" class="{{ request()->is($currentLocale) || request()->is($currentLocale.'/*') ? 'active' : '' }}">{{ __('app.nav.home') }}</a>                <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('cases.index') }}" class="{{ request()->is('*cases*') ? 'active' : '' }}">{{ __('app.nav.cases') }}</a>
+                <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('posts.index') }}" class="{{ request()->is('*posts*') ? 'active' : '' }}">{{ __('app.nav.blog') }}</a>
+                <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('about') }}" class="{{ request()->is('*about*') ? 'active' : '' }}">{{ __('app.nav.about') }}</a>
                 <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('contact') }}" class="{{ request()->is('*contact*') ? 'active' : '' }}">{{ __('app.nav.contact') }}</a>
             </nav>
             <div class="lang-switch">
-                <span>{{ \App\Helpers\LanguageHelper::getLocaleName() }}</span>
+                <span class="current-lang">{{ \App\Helpers\LanguageHelper::getLocaleName() }}</span>
                 @php
                     $currentLocale = app()->getLocale();
                     $oppositeLocale = $currentLocale === 'ar' ? 'en' : 'ar';
-                    $currentPath = request()->path();
-                    $pathWithoutLocale = preg_replace('/^(en|ar)\/?/', '', $currentPath);
-                    $oppositeUrl = url($oppositeLocale . '/' . $pathWithoutLocale);
+                    $oppositeUrl = \App\Helpers\LanguageHelper::getLocalizedCurrentUrl();
+                    $oppositeUrl = str_replace('/' . $currentLocale, '/' . $oppositeLocale, $oppositeUrl);
                 @endphp
-                <a class="btn btn-ghost" href="{{ $oppositeUrl }}">{{ $currentLocale === 'en' ? __('app.nav.arabic') : __('app.nav.english') }}</a>
+                <a class="btn btn-ghost switch-lang" href="{{ $oppositeUrl }}" title="{{ __('app.nav.language') }}">
+                    {{ $currentLocale === 'en' ? __('app.nav.arabic') : __('app.nav.english') }}
+                </a>
             </div>
         </div>
 
@@ -274,9 +300,9 @@ $homeUrl = url($currentLocale); // ينتج /en أو /ar
                 <h4>{{ __('app.footer.quick_links') }}</h4>
                 <div style="display:flex;flex-direction:column;gap:6px">
                     @php $loc = app()->getLocale(); @endphp<a href="{{ url($loc) }}">{{ __('app.nav.home') }}</a>
-                    <a href="{{ route('cases.index') }}">{{ __('app.buttons.all_appeals') }}</a>
-                    <a href="{{ route('posts.index') }}">{{ __('app.buttons.all_posts') }}</a>
-                    <a href="{{ route('about') }}">{{ __('app.nav.about') }}</a>
+                    <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('cases.index') }}">{{ __('app.buttons.all_appeals') }}</a>
+                    <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('posts.index') }}">{{ __('app.buttons.all_posts') }}</a>
+                    <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('about') }}">{{ __('app.nav.about') }}</a>
                     <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('contact') }}">{{ __('app.nav.contact') }}</a>
                 </div>
             </div>
@@ -285,7 +311,7 @@ $homeUrl = url($currentLocale); // ينتج /en أو /ar
                 <div style="display:flex;flex-direction:column;gap:6px">
                     <span>{{ __('app.footer.email') }}: <a href="mailto:support@wallsmust.org">support@wallsmust.org</a></span>
                     <span>{{ __('app.footer.whatsapp') }}: +970 599 000 000</span>
-                    <a class="btn btn-green" href="{{ route('cases.index') }}" style="margin-top:10px">{{ __('app.footer.support_now') }}</a>
+                    <a class="btn btn-green" href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('cases.index') }}" style="margin-top:10px">{{ __('app.footer.support_now') }}</a>
                 </div>
             </div>
         </div>

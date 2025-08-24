@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.seo')
 
 @section('title', __('app.sections.pulse_cause') . ' -- ' . __('app.site_name'))
 

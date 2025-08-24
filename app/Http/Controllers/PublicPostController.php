@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Services\SEOService;
 use Illuminate\Http\Request;
 
 class PublicPostController extends Controller
@@ -14,12 +15,21 @@ class PublicPostController extends Controller
             ->when($q, fn($query) => $query->where('title', 'like', "%{$q}%"))
             ->latest('published_at')
             ->paginate(9);
-        return view('blog.index', compact('posts', 'q'));
+
+        $locale = session('locale', 'ar');
+        $seoMeta = SEOService::getPageMeta('blog', [], $locale);
+        
+        return view('blog.index', compact('posts', 'q', 'seoMeta'));
     }
 
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->where('is_published', true)->firstOrFail();
-        return view('blog.show', compact('post'));
+        
+        $locale = session('locale', 'ar');
+        $seoMeta = SEOService::getPageMeta('post', ['post' => $post], $locale);
+        $structuredData = SEOService::generateStructuredData('article', ['post' => $post]);
+        
+        return view('blog.show', compact('post', 'seoMeta', 'structuredData'));
     }
 }

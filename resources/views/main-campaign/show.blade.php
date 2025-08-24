@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.seo')
 
 @section('title', $campaign->title . ' - ' . __('app.site_name'))
 

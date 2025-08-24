@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.seo')
 
 @section('title', __('app.sections.urgent_appeals') . ' -- ' . __('app.site_name'))
 

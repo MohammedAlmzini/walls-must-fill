@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.seo')
 
 @section('title', $case->title . ' -- نداء عاجل')
 

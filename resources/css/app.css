@@ -1,0 +1,5 @@
+.logo {
+    background: transparent;
+    mix-blend-mode: multiply;
+    filter: brightness(1.1) contrast(1.1);
+}

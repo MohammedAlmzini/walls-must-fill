@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.seo')
 
 @section('title', __('app.nav.contact') . ' - ' . __('app.site_name'))
 
@@ -47,11 +47,11 @@
                 <div class="p">
                     <h2 style="margin:0 0 12px">{{ __('app.footer.contact') }}</h2>
                     <div style="margin-bottom:14px">
-                        <strong>{{ __('app.footer.email') }}</strong><br>
+                        <strong>{{ __('app.footer.email') }}:</strong><br>
                         <a href="mailto:info@walls-must.com">info@walls-must.com</a>
                     </div>
                     <div style="margin-bottom:14px">
-                        <strong>{{ __('app.footer.whatsapp') }}</strong><br>
+                        <strong>{{ __('app.footer.whatsapp') }}:</strong><br>
                         <a href="https://wa.me/1234567890" target="_blank" rel="noopener">+1234567890</a>
                     </div>
                     <div>

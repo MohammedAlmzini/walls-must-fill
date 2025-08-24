@@ -14,19 +14,53 @@ return [
         'support' => 'Support an Appeal',
         'language' => 'Language',
         'english' => 'English',
-        'arabic' => 'Arabic',
+        'arabic' => 'العربية',
     ],
     
     'hero' => [
         'title' => 'Together to stop the genocide and support the people of Gaza',
+        'title_line1' => 'STOP THE',
+        'title_line2' => 'GENOCIDE',
         'description' => 'Walls Must platform for sharing urgent appeals and posts about the Palestinian cause, and collecting donations for humanitarian cases.',
+        'subtitle' => 'Support Palestine and donate to humanitarian causes',
         'explore_appeals' => 'Explore Appeals',
         'pulse_cause' => 'Pulse of the Cause',
     ],
     
-    'kpis' => [
-        'cases_count' => 'Number of Cases',
+    'campaign' => [
+        'urgent_campaign' => 'Urgent Campaign',
+        'main_title' => 'Gaza Orphans Relief Campaign',
+        'subtitle' => 'Be part of hope - support Gaza orphans in their ordeal',
+        'description' => 'Children who have lost everything.. their fathers, their homes, their dreams. Help us restore hope to their little hearts and provide food, medicine and safe shelter for them.',
+        'donate_now' => 'Donate Now',
+        'share_campaign' => 'Share Campaign',
+        'urgent_needs_title' => 'Essential Urgent Needs',
+        'urgent_needs' => [
+            'Food and clean water',
+            'Medicine and medical care',
+            'Safe and warm shelter',
+            'Clothes and blankets',
+            'Educational supplies'
+        ],
+        'from' => 'of',
+        'goal_percentage' => 'of the required goal',
+        'supporter' => 'supporter',
+        'supporters' => 'supporters',
+        'day_left' => 'day left',
+        'days_left' => 'days left',
+        'required' => 'needed',
+        'urgency_title' => 'Every minute of delay means more suffering',
+        'urgency_text' => 'Your donation today reaches those in need immediately',
+    ],
+    
+    'stats' => [
+        'donors' => 'donor',
+        'total_donors' => 'Total donors + 1000',
+        'cases_need_help' => 'case needs help',
+        'cases_description' => 'Cases that need help',
         'total_donations' => 'Total Donations',
+        'amount_description' => 'Amount collected in dollars',
+        'cases_count' => 'Number of Cases',
         'completed_cases' => 'Completed Cases',
         'enhanced_note' => 'Number enhanced +100 to encourage participation',
     ],
@@ -36,6 +70,8 @@ return [
         'urgent_appeals' => 'Urgent Appeals',
         'all_posts' => 'All Posts',
         'all_appeals' => 'All Appeals',
+        'share_causes' => 'SHARE OUR CAUSES',
+        'share_description' => 'Your donation can make a difference. Help us provide aid to those in need and support the people of Palestine.',
     ],
     
     'empty_states' => [
@@ -43,8 +79,12 @@ return [
         'no_cases' => 'No cases currently.',
     ],
     
-    'amount_of' => 'Amount: $:amount of :goal',
-    'no_goal_set' => 'no specific goal',
+    'amount' => [
+        'collected' => 'Amount',
+        'from' => 'of',
+        'of' => 'Amount: $:amount of :goal',
+        'no_goal_set' => 'no specific goal',
+    ],
     
     'buttons' => [
         'explore_appeals' => 'Explore Appeals',
@@ -82,6 +122,16 @@ return [
         'description' => 'Description',
         'required' => 'Required',
         'optional' => 'Optional',
+        'search_titles_placeholder' => 'Search titles...',
+    ],
+    
+    'post' => [
+        'share_post' => 'Share Post',
+        'facebook' => 'Facebook',
+        'twitter' => 'Twitter',
+        'whatsapp' => 'WhatsApp',
+        'by_author' => 'By:',
+        'video' => 'Video',
     ],
     
     'messages' => [
@@ -96,6 +146,9 @@ return [
         'something_went_wrong' => 'Something went wrong!',
         'are_you_sure' => 'Are you sure?',
         'this_action_cannot_be_undone' => 'This action cannot be undone.',
+        'contact_success' => 'Your message has been sent successfully. We will get back to you soon.',
+        'contact_error' => 'Unable to send message currently. Please try again later.',
+        'contact_received' => 'Your message has been received. Thank you for contacting us.',
     ],
     
     'support' => [
@@ -105,6 +158,7 @@ return [
             'title' => 'Quick Donation via QR',
             'description' => 'Scan the code with your device to access the donation page directly',
             'scan_to_donate' => 'Scan to Donate',
+            'not_available' => 'QR Code not available',
             'features' => [
                 'fast' => 'Fast',
                 'secure' => 'Secure',
@@ -125,6 +179,24 @@ return [
     
     'language' => 'Language',
     
+    'about' => [
+        'mission_title' => 'Our Mission',
+        'mission_text' => 'We believe in Walls Must that walls must fall before our shared humanity. Our platform aims to:',
+        'mission_point1' => 'Publish urgent relief appeals from Gaza',
+        'mission_point2' => 'Document human suffering and solidarity with the people of Palestine',
+        'mission_point3' => 'Facilitate the process of donation and support for humanitarian cases',
+        'mission_point4' => 'Raise awareness about the Palestinian cause',
+        'values_title' => 'Our Values',
+        'value1_title' => 'Independence',
+        'value1_text' => 'We work independently away from political influences',
+        'value2_title' => 'Transparency',
+        'value2_text' => 'We are committed to full transparency in collecting and distributing donations',
+        'value3_title' => 'Urgent Response',
+        'value3_text' => 'We work on rapid response to emergency cases',
+        'how_we_work_title' => 'How We Work',
+        'how_we_work_text' => 'Walls Must platform combines urgent appeals and awareness content to serve the Palestinian cause. We provide a safe and reliable platform for donation and publishing human stories.',
+    ],
+    
     'footer' => [
         'description' => 'Independent platform to support the Palestinian cause and deliver relief appeals from Gaza to the world.',
         'belief' => 'We believe that walls must fall before our shared humanity.',
@@ -133,8 +205,8 @@ return [
         'urgent_response' => 'Urgent Response',
         'quick_links' => 'Quick Links',
         'contact' => 'Contact',
-        'email' => 'Email:',
-        'whatsapp' => 'WhatsApp:',
+        'email' => 'Email',
+        'whatsapp' => 'WhatsApp',
         'support_now' => 'Support an Appeal Now',
         'copyright' => '© :year Walls Must — A voice for the cause and support for relief.',
         'no_user_registration' => 'No user registration. Admin control panel only.',

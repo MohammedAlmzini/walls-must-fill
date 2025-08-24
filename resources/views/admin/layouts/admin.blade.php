@@ -307,6 +307,10 @@
                     <i class="fas fa-flag"></i>
                     الحملة الرئيسية
                 </a>
+                <a href="{{ route('admin.seo.index') }}" class="menu-item {{ request()->routeIs('admin.seo.*') ? 'active' : '' }}">
+                    <i class="fas fa-search"></i>
+                    إدارة SEO
+                </a>
                 <form action="{{ route('admin.logout') }}" method="post" style="margin-top: 20px;">
                     @csrf
                     <button type="submit" class="menu-item" style="width: 100%; text-align: right; border: none; background: none; cursor: pointer;">
