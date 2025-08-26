@@ -250,12 +250,9 @@
             <span class="name">{{ __('app.site_name') }}</span>
             </div>
             <nav class="nav">
-@php
-$currentLocale = app()->getLocale();
-$homeUrl = url($currentLocale); // ينتج /en أو /ar
-@endphp
-<a href="{{ $homeUrl }}" class="{{ request()->is($currentLocale) || request()->is($currentLocale.'/*') ? 'active' : '' }}">{{ __('app.nav.home') }}</a>                <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('cases.index') }}" class="{{ request()->is('*cases*') ? 'active' : '' }}">{{ __('app.nav.cases') }}</a>
-                <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('posts.index') }}" class="{{ request()->is('*posts*') ? 'active' : '' }}">{{ __('app.nav.blog') }}</a>
+                <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('home') }}" class="{{ request()->is('*home*') ? 'active' : '' }}">{{ __('app.nav.home') }}</a>
+                <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('cases.index') }}" class="{{ request()->is('*cases*') ? 'active' : '' }}">{{ __('app.nav.cases') }}</a>
+                <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('blog.index') }}" class="{{ request()->is('*blog*') ? 'active' : '' }}">{{ __('app.nav.blog') }}</a>
                 <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('about') }}" class="{{ request()->is('*about*') ? 'active' : '' }}">{{ __('app.nav.about') }}</a>
                 <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('contact') }}" class="{{ request()->is('*contact*') ? 'active' : '' }}">{{ __('app.nav.contact') }}</a>
             </nav>

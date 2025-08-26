@@ -63,6 +63,7 @@ return [
         'cases_count' => 'Number of Cases',
         'completed_cases' => 'Completed Cases',
         'enhanced_note' => 'Number enhanced +100 to encourage participation',
+        'views' => 'Views',
     ],
     
     'sections' => [
@@ -74,16 +75,47 @@ return [
         'share_description' => 'Your donation can make a difference. Help us provide aid to those in need and support the people of Palestine.',
     ],
     
+    'descriptions' => [
+        'urgent_appeals_description' => 'Explore urgent humanitarian appeals from Gaza that need your immediate support and donations.',
+        'pulse_cause_description' => 'Stay updated with the latest news, stories, and insights about the Palestinian cause and humanitarian efforts.',
+    ],
+    
     'empty_states' => [
         'no_posts' => 'No posts yet.',
         'no_cases' => 'No cases currently.',
+        'no_posts_title' => 'No Posts Available',
+        'no_cases_title' => 'No Cases Available',
     ],
     
-    'amount' => [
-        'collected' => 'Amount',
-        'from' => 'of',
-        'of' => 'Amount: $:amount of :goal',
+    'amount_of' => [
+        'collected' => 'Collected',
+        'from' => 'from',
         'no_goal_set' => 'no specific goal',
+    ],
+    
+    'status' => [
+        'active' => 'Active',
+        'completed' => 'Completed',
+    ],
+    
+    'categories' => [
+        'blog' => 'Blog',
+        'news' => 'News',
+        'story' => 'Story',
+    ],
+    
+    'actions' => [
+        'read_more' => 'Read More',
+        'donate_now' => 'Donate Now',
+        'share' => 'Share',
+        'explore' => 'Explore',
+    ],
+    
+    'common' => [
+        'author' => 'Author',
+        'date' => 'Date',
+        'category' => 'Category',
+        'status' => 'Status',
     ],
     
     'buttons' => [
@@ -123,6 +155,7 @@ return [
         'required' => 'Required',
         'optional' => 'Optional',
         'search_titles_placeholder' => 'Search titles...',
+        'search_case_placeholder' => 'Search cases...',
     ],
     
     'post' => [
@@ -132,6 +165,12 @@ return [
         'whatsapp' => 'WhatsApp',
         'by_author' => 'By:',
         'video' => 'Video',
+    ],
+    
+    'gallery' => [
+        'title' => 'Image Gallery',
+        'case_image' => 'Case Image',
+        'view_image' => 'View Image',
     ],
     
     'messages' => [
@@ -149,6 +188,7 @@ return [
         'contact_success' => 'Your message has been sent successfully. We will get back to you soon.',
         'contact_error' => 'Unable to send message currently. Please try again later.',
         'contact_received' => 'Your message has been received. Thank you for contacting us.',
+        'case_completed' => 'Case Completed',
     ],
     
     'support' => [
@@ -158,7 +198,16 @@ return [
             'title' => 'Quick Donation via QR',
             'description' => 'Scan the code with your device to access the donation page directly',
             'scan_to_donate' => 'Scan to Donate',
+            'click_to_enlarge' => 'Click to enlarge',
             'not_available' => 'QR Code not available',
+            'modal_title' => 'Scan QR Code to Donate',
+            'modal_description' => 'Use your phone camera or QR scanner app to scan this code and make a donation',
+            'step1_title' => 'Open Camera',
+            'step1_description' => 'Open your phone camera or QR scanner app',
+            'step2_title' => 'Point & Scan',
+            'step2_description' => 'Point your camera at the QR code',
+            'step3_title' => 'Donate',
+            'step3_description' => 'Follow the link to complete your donation',
             'features' => [
                 'fast' => 'Fast',
                 'secure' => 'Secure',
@@ -217,6 +266,46 @@ return [
         'terms_of_service' => 'Terms of Service',
     ],
     
+    'ship_campaign' => [
+        'title' => '1000 Ships Campaign',
+        'subtitle' => 'Opinion Survey on the Palestinian Cause',
+        'description' => 'Participate in the opinion survey on the Palestinian cause and be part of the 1000 ships campaign',
+        'form' => [
+            'first_name' => 'First Name',
+            'last_name' => 'Last Name',
+            'whatsapp_number' => 'WhatsApp Number (Optional)',
+            'email' => 'Email (Optional)',
+            'age' => 'Age',
+            'questions' => [
+                'title' => 'Opinion Survey Questions',
+                'question1' => 'What is your opinion on the importance of supporting the Palestinian cause?',
+                'question2' => 'How can the Arab and Islamic world contribute to supporting the people of Gaza?',
+                'question3' => 'What are the best ways to raise awareness about the Palestinian cause?',
+                'question4' => 'How can the humanitarian situation in Gaza be improved?',
+                'question5' => 'What is your message to the world about the Palestinian cause?',
+            ],
+            'submit' => 'Submit Survey',
+            'success' => 'Survey submitted successfully!',
+            'error' => 'Error occurred while submitting survey',
+        ],
+        'stats' => [
+            'total_participants' => 'Total Participants',
+            'participants_today' => 'Participants Today',
+            'goal' => 'Goal: 1000 Participants',
+        ],
+    ],
+    
+    'validation' => [
+        'required' => 'The :attribute field is required.',
+        'email' => 'The :attribute must be a valid email address.',
+        'min' => 'The :attribute must be at least :min characters.',
+        'max' => 'The :attribute may not be greater than :max characters.',
+        'numeric' => 'The :attribute must be a number.',
+        'image' => 'The :attribute must be an image.',
+        'mimes' => 'The :attribute must be a file of type: :values.',
+        'size' => 'The :attribute may not be larger than :size kilobytes.',
+    ],
+
     'admin' => [
         'dashboard' => 'Dashboard',
         'posts' => 'Posts',
@@ -270,16 +359,18 @@ return [
         'total' => 'Total',
         'goal' => 'Goal',
         'percentage' => 'Percentage',
-    ],
-    
-    'validation' => [
-        'required' => 'The :attribute field is required.',
-        'email' => 'The :attribute must be a valid email address.',
-        'min' => 'The :attribute must be at least :min characters.',
-        'max' => 'The :attribute may not be greater than :max characters.',
-        'numeric' => 'The :attribute must be a number.',
-        'image' => 'The :attribute must be an image.',
-        'mimes' => 'The :attribute must be a file of type: :values.',
-        'size' => 'The :attribute may not be larger than :size kilobytes.',
+        'ship_campaign' => '1000 Ships Campaign',
+        'export_excel' => 'Export to Excel',
+        'bulk_delete' => 'Bulk Delete',
+        'select_all' => 'Select All',
+        'participants' => 'Participants',
+        'whatsapp_number' => 'WhatsApp Number',
+        'age' => 'Age',
+        'questions' => 'Questions',
+        'answers' => 'Answers',
+        'today' => 'Today',
+        'participant_info' => 'Participant Information',
+        'metadata' => 'Metadata',
+        'select_records' => 'Please select records to delete',
     ],
 ];

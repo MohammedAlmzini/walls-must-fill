@@ -307,6 +307,10 @@
                     <i class="fas fa-flag"></i>
                     الحملة الرئيسية
                 </a>
+                <a href="{{ route('admin.ship-campaign.index') }}" class="menu-item {{ request()->routeIs('admin.ship-campaign.*') ? 'active' : '' }}">
+                    <i class="fas fa-ship"></i>
+                    حملة ال1000 سفينة
+                </a>
                 <a href="{{ route('admin.seo.index') }}" class="menu-item {{ request()->routeIs('admin.seo.*') ? 'active' : '' }}">
                     <i class="fas fa-search"></i>
                     إدارة SEO

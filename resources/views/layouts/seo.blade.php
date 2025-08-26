@@ -111,12 +111,12 @@
             font-size:14px;opacity:.8;font-weight:600
         }
         .switch-lang{
-            background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+            background:rgba(255, 255, 255, 1)0.1);border:1px solid rgba(243, 239, 239, 1);
             padding:6px 12px;border-radius:6px;font-size:13px;font-weight:600;
             transition:all .2s ease
         }
         .switch-lang:hover{
-            background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.3);
+            background:rgba(179, 179, 218, 0.2);border-color:rgba(29, 168, 56, 0.3);
             text-decoration:none;transform:translateY(-1px)
         }
         .lang-switch{
@@ -228,6 +228,14 @@
             .cta-buttons{flex-direction:column;align-items:center}
             .btn{width:100%;max-width:300px}
         }
+
+        .logo {
+    width: 60px;      /* العرض */
+    height: auto;     /* يحافظ على النسبة */
+    display: inline-block;
+    vertical-align: middle; /* يخليها بمحاذاة النص إذا بجانبه */
+}
+
     </style>
 </head>
 <body>
@@ -236,8 +244,8 @@
         <div class="container">
             <div class="topbar">
                 <div class="brand">
-                    <span class="logo">WM</span>
-                    <span class="name">{{ __('app.site_name') }}</span>
+                <img src="/storage/img/walls_logo.png" alt="Walls Must Logo" class="logo">
+                <span class="name">{{ __('app.site_name') }}</span>
                 </div>
                 <nav class="nav">
                     <a href="{{ route('en.home') }}" class="{{ request()->routeIs('en.home') ? 'active' : '' }}">{{ __('app.nav.home') }}</a>

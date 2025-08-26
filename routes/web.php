@@ -13,7 +13,9 @@ use App\Http\Controllers\Admin\AdminAidCaseController;
 use App\Http\Controllers\Admin\AdminContactMessageController;
 use App\Http\Controllers\Admin\AdminMainCampaignController;
 use App\Http\Controllers\Admin\AdminSEOController;
+use App\Http\Controllers\Admin\AdminShipCampaignController;
 use App\Http\Controllers\MainCampaignController;
+use App\Http\Controllers\ShipCampaignController;
 use App\Http\Controllers\SEOController;
 use App\Services\SEOService;
 
@@ -55,6 +57,10 @@ Route::prefix('en')->group(function () {
     
     // Blog Routes - إضافة جديدة
     Route::get('/blog', [PublicPostController::class, 'index'])->name('en.blog.index');
+    
+    // Ship Campaign Routes - إضافة جديدة
+    Route::get('/ship-campaign', [ShipCampaignController::class, 'show'])->name('en.ship-campaign');
+    Route::post('/ship-campaign', [ShipCampaignController::class, 'store'])->name('en.ship-campaign.submit');
 });
 
 // Arabic Routes
@@ -74,6 +80,10 @@ Route::prefix('ar')->group(function () {
     
     // Blog Routes - إضافة جديدة
     Route::get('/blog', [PublicPostController::class, 'index'])->name('ar.blog.index');
+    
+    // Ship Campaign Routes - إضافة جديدة
+    Route::get('/ship-campaign', [ShipCampaignController::class, 'show'])->name('ar.ship-campaign');
+    Route::post('/ship-campaign', [ShipCampaignController::class, 'store'])->name('ar.ship-campaign.submit');
 });
 
 // Fallback routes (without locale prefix) - redirect to English
@@ -147,6 +157,13 @@ Route::middleware(['admin.auth'])->prefix('/admin-portal-walls-must')->name('adm
     Route::get('/main-campaign', [AdminMainCampaignController::class, 'index'])->name('main-campaign.index');
     Route::get('/main-campaign/edit', [AdminMainCampaignController::class, 'edit'])->name('main-campaign.edit');
     Route::put('/main-campaign', [AdminMainCampaignController::class, 'update'])->name('main-campaign.update');
+
+    // إدارة حملة ال1000 سفينة - إضافة جديدة
+    Route::get('/ship-campaign', [AdminShipCampaignController::class, 'index'])->name('ship-campaign.index');
+    Route::get('/ship-campaign/{survey}', [AdminShipCampaignController::class, 'show'])->name('ship-campaign.show');
+    Route::delete('/ship-campaign/{survey}', [AdminShipCampaignController::class, 'destroy'])->name('ship-campaign.destroy');
+    Route::get('/ship-campaign/export/excel', [AdminShipCampaignController::class, 'exportExcel'])->name('ship-campaign.export');
+    Route::post('/ship-campaign/bulk-delete', [AdminShipCampaignController::class, 'bulkDelete'])->name('ship-campaign.bulk-delete');
 
     // إدارة SEO
     Route::get('/seo', [AdminSEOController::class, 'index'])->name('seo.index');

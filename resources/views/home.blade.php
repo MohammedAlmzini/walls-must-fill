@@ -595,6 +595,187 @@
             height: 150px;
         }
     }
+
+    /* ستايلات قسم حملة ال1000 سفينة - تصميم محسن ومتناسق */
+    .ship-campaign-section {
+        margin: 60px 0;
+        padding: 40px 0;
+    }
+
+    .campaign-card {
+        background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255,255,255,0.1);
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .campaign-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23ffffff" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        pointer-events: none;
+    }
+
+    .campaign-icon {
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .ship-emoji {
+        font-size: 80px;
+        display: block;
+        animation: float 3s ease-in-out infinite;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+    }
+
+    .campaign-content {
+        flex: 1;
+        position: relative;
+        z-index: 1;
+        color: white;
+    }
+
+    .campaign-title {
+        font-size: 32px;
+        font-weight: 900;
+        margin: 0 0 16px 0;
+        line-height: 1.2;
+        background: linear-gradient(45deg, #ffffff, #f0f9ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .campaign-description {
+        font-size: 18px;
+        opacity: 0.9;
+        line-height: 1.6;
+        margin: 0 0 24px 0;
+    }
+
+    .campaign-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+    }
+
+    .campaign-actions .btn {
+        padding: 14px 28px;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .campaign-actions .btn-primary {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: white;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    }
+
+    .campaign-actions .btn-primary:hover {
+        background: linear-gradient(135deg, #dc2626, #b91c1c);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+    }
+
+    .language-switch {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .lang-link {
+        color: #64748b;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 4px 8px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+
+    .lang-link:hover {
+        color: #1e40af;
+        background: #f1f5f9;
+    }
+
+    .lang-link.active {
+        color: #1e40af;
+        background: #dbeafe;
+    }
+
+    .separator {
+        color: #cbd5e1;
+        font-weight: 300;
+    }
+
+    /* تصميم متجاوب */
+    @media (max-width: 768px) {
+        .ship-campaign-section {
+            margin: 40px 0;
+            padding: 20px 0;
+        }
+
+        .campaign-card {
+            flex-direction: column;
+            text-align: center;
+            padding: 32px 24px;
+            gap: 24px;
+        }
+
+        .campaign-title {
+            font-size: 28px;
+        }
+
+        .campaign-actions {
+            justify-content: center;
+        }
+
+        .ship-emoji {
+            font-size: 60px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .campaign-card {
+            padding: 24px 20px;
+        }
+
+        .campaign-title {
+            font-size: 24px;
+        }
+
+        .campaign-description {
+            font-size: 16px;
+        }
+
+        .campaign-actions .btn {
+            padding: 12px 24px;
+            font-size: 15px;
+        }
+    }
 </style>
 
     <div class="container hero">
@@ -602,8 +783,8 @@
             <h1 class="hero-title">{{ __('app.hero.title_line1') }}<br>{{ __('app.hero.title_line2') }}</h1>
             <p class="hero-sub">{{ __('app.hero.subtitle') }}</p>
             <div class="cta-row">
-                <a class="btn btn-primary" href="{{ route('cases.index') }}">{{ __('app.hero.explore_appeals') }}</a>
-                <a class="btn btn-ghost" href="{{ route('posts.index') }}">{{ __('app.hero.pulse_cause') }}</a>
+                <a class="btn btn-primary" href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('cases.index') }}">{{ __('app.hero.explore_appeals') }}</a>
+                <a class="btn btn-ghost" href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('posts.index') }}">{{ __('app.hero.pulse_cause') }}</a>
             </div>
         </div>
         <div class="visual">
@@ -664,7 +845,7 @@
                             <button type="button" class="btn-donate" onclick="showDonationModal()">
                                 💝 {{ __('app.campaign.donate_now') }}
                             </button>
-                            <a href="{{ route('cases.index') }}" class="btn-share">
+                            <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('cases.index') }}" class="btn-share">
                                 📢 {{ __('app.campaign.share_campaign') }}
                             </a>
                         </div>
@@ -762,7 +943,7 @@
             @endforelse
         </div>
         <div style="margin-top:14px">
-            <a class="btn btn-dark" href="{{ route('cases.index') }}">{{ __('app.buttons.all_appeals') }}</a>
+            <a class="btn btn-dark" href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('cases.index') }}">{{ __('app.buttons.all_appeals') }}</a>
         </div>
     </section>
 
@@ -784,7 +965,27 @@
             @endforelse
         </div>
         <div style="margin-top:14px">
-            <a class="btn btn-dark" href="{{ route('posts.index') }}">{{ __('app.buttons.all_posts') }}</a>
+            <a class="btn btn-dark" href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('posts.index') }}">{{ __('app.buttons.all_posts') }}</a>
+        </div>
+    </section>
+
+    <!-- قسم حملة ال1000 سفينة -->
+    <section class="ship-campaign-section">
+        <div class="container">
+            <div class="campaign-card">
+                <div class="campaign-icon">
+                    <span class="ship-emoji">🚢</span>
+                </div>
+                <div class="campaign-content">
+                    <h2 class="campaign-title">{{ __('app.ship_campaign.title') }}</h2>
+                    <p class="campaign-description">{{ __('app.ship_campaign.description') }}</p>
+                    <div class="campaign-actions">
+                        <a href="{{ \App\Helpers\LanguageHelper::getLocalizedRoute('ship-campaign') }}" class="btn btn-primary">
+                            {{ __('app.ship_campaign.form.submit') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

@@ -63,6 +63,7 @@ return [
         'cases_count' => 'عدد الحالات',
         'completed_cases' => 'حالات أُنجزت',
         'enhanced_note' => 'الرقم معزَّز +100 لتحفيز المشاركة',
+        'views' => 'مشاهدات',
     ],
     
     'sections' => [
@@ -74,16 +75,47 @@ return [
         'share_description' => 'تبرعكم يمكن أن يصنع الفرق. ساعدونا في تقديم المساعدة للمحتاجين ودعم أهل فلسطين.',
     ],
     
+    'descriptions' => [
+        'urgent_appeals_description' => 'استكشف النداءات الإنسانية العاجلة من غزة التي تحتاج دعمكم وتبرعاتكم الفورية.',
+        'pulse_cause_description' => 'ابقوا على اطلاع بآخر الأخبار والقصص والرؤى حول القضية الفلسطينية والجهود الإنسانية.',
+    ],
+    
     'empty_states' => [
         'no_posts' => 'لا توجد تدوينات بعد.',
         'no_cases' => 'لا توجد حالات حالياً.',
+        'no_posts_title' => 'لا توجد تدوينات متاحة',
+        'no_cases_title' => 'لا توجد حالات متاحة',
     ],
     
-    'amount' => [
+    'amount_of' => [
         'collected' => 'المجموع',
         'from' => 'من',
-        'of' => 'المجموع: $:amount من :goal',
         'no_goal_set' => 'بدون هدف محدد',
+    ],
+    
+    'status' => [
+        'active' => 'نشطة',
+        'completed' => 'مكتملة',
+    ],
+    
+    'categories' => [
+        'blog' => 'مدونة',
+        'news' => 'أخبار',
+        'story' => 'قصة',
+    ],
+    
+    'actions' => [
+        'read_more' => 'اقرأ المزيد',
+        'donate_now' => 'تبرع الآن',
+        'share' => 'شارك',
+        'explore' => 'استكشف',
+    ],
+    
+    'common' => [
+        'author' => 'الكاتب',
+        'date' => 'التاريخ',
+        'category' => 'الفئة',
+        'status' => 'الحالة',
     ],
     
     'buttons' => [
@@ -123,6 +155,7 @@ return [
         'required' => 'مطلوب',
         'optional' => 'اختياري',
         'search_titles_placeholder' => 'ابحث في العناوين...',
+        'search_case_placeholder' => 'ابحث في الحالات...',
     ],
     
     'post' => [
@@ -132,6 +165,12 @@ return [
         'whatsapp' => 'واتساب',
         'by_author' => 'بواسطة:',
         'video' => 'فيديو',
+    ],
+    
+    'gallery' => [
+        'title' => 'معرض الصور',
+        'case_image' => 'صورة الحالة',
+        'view_image' => 'عرض الصورة',
     ],
     
     'messages' => [
@@ -149,6 +188,7 @@ return [
         'contact_success' => 'تم إرسال رسالتك بنجاح. سنعاود التواصل قريباً.',
         'contact_error' => 'تعذّر إرسال الرسالة حالياً. يرجى المحاولة لاحقاً.',
         'contact_received' => 'تم استلام رسالتك. شكراً لتواصلك.',
+        'case_completed' => 'تم إنجاز الحالة',
     ],
     
     'support' => [
@@ -158,7 +198,16 @@ return [
             'title' => 'تبرع سريع عبر QR',
             'description' => 'امسح الكود بجهازك للوصول إلى صفحة التبرع مباشرة',
             'scan_to_donate' => 'امسح للتبرع',
+            'click_to_enlarge' => 'اضغط للتكبير',
             'not_available' => 'QR Code غير متوفر',
+            'modal_title' => 'امسح رمز QR للتبرع',
+            'modal_description' => 'استخدم كاميرا هاتفك أو تطبيق ماسح QR لمسح هذا الكود وإجراء التبرع',
+            'step1_title' => 'افتح الكاميرا',
+            'step1_description' => 'افتح كاميرا هاتفك أو تطبيق ماسح QR',
+            'step2_title' => 'وجه وامسح',
+            'step2_description' => 'وجه كاميرتك نحو رمز QR',
+            'step3_title' => 'تبرع',
+            'step3_description' => 'اتبع الرابط لإكمال تبرعك',
             'features' => [
                 'fast' => 'سريع',
                 'secure' => 'آمن',
@@ -217,6 +266,46 @@ return [
         'terms_of_service' => 'شروط الخدمة',
     ],
     
+    'ship_campaign' => [
+        'title' => 'حملة ال1000 سفينة',
+        'subtitle' => 'استطلاع رأي حول القضية الفلسطينية',
+        'description' => 'شارك في استطلاع الرأي حول القضية الفلسطينية وكن جزءاً من حملة ال1000 سفينة',
+        'form' => [
+            'first_name' => 'الاسم الأول',
+            'last_name' => 'الاسم الأخير',
+            'whatsapp_number' => 'رقم الواتساب (اختياري)',
+            'email' => 'البريد الإلكتروني (اختياري)',
+            'age' => 'العمر',
+            'questions' => [
+                'title' => 'أسئلة استطلاع الرأي',
+                'question1' => 'ما رأيك في أهمية دعم القضية الفلسطينية؟',
+                'question2' => 'كيف يمكن للعالم العربي والإسلامي المساهمة في دعم أهل غزة؟',
+                'question3' => 'ما هي أفضل الطرق لنشر الوعي حول القضية الفلسطينية؟',
+                'question4' => 'كيف يمكن تحسين الوضع الإنساني في غزة؟',
+                'question5' => 'ما هي رسالتك للعالم حول القضية الفلسطينية؟',
+            ],
+            'submit' => 'إرسال الاستطلاع',
+            'success' => 'تم إرسال استطلاع الرأي بنجاح!',
+            'error' => 'حدث خطأ أثناء إرسال الاستطلاع',
+        ],
+        'stats' => [
+            'total_participants' => 'إجمالي المشاركين',
+            'participants_today' => 'المشاركون اليوم',
+            'goal' => 'الهدف: 1000 مشارك',
+        ],
+    ],
+    
+    'validation' => [
+        'required' => 'حقل :attribute مطلوب.',
+        'email' => 'يجب أن يكون :attribute عنوان بريد إلكتروني صحيح.',
+        'min' => 'يجب أن يكون :attribute على الأقل :min أحرف.',
+        'max' => 'لا يمكن أن يكون :attribute أكثر من :max أحرف.',
+        'numeric' => 'يجب أن يكون :attribute رقماً.',
+        'image' => 'يجب أن يكون :attribute صورة.',
+        'mimes' => 'يجب أن يكون :attribute ملف من نوع: :values.',
+        'size' => 'لا يمكن أن يكون :attribute أكبر من :size كيلوبايت.',
+    ],
+
     'admin' => [
         'dashboard' => 'لوحة التحكم',
         'posts' => 'التدوينات',
@@ -270,16 +359,18 @@ return [
         'total' => 'المجموع',
         'goal' => 'الهدف',
         'percentage' => 'النسبة المئوية',
-    ],
-    
-    'validation' => [
-        'required' => 'حقل :attribute مطلوب.',
-        'email' => 'يجب أن يكون :attribute عنوان بريد إلكتروني صحيح.',
-        'min' => 'يجب أن يكون :attribute على الأقل :min أحرف.',
-        'max' => 'لا يمكن أن يكون :attribute أكثر من :max أحرف.',
-        'numeric' => 'يجب أن يكون :attribute رقماً.',
-        'image' => 'يجب أن يكون :attribute صورة.',
-        'mimes' => 'يجب أن يكون :attribute ملف من نوع: :values.',
-        'size' => 'لا يمكن أن يكون :attribute أكبر من :size كيلوبايت.',
+        'ship_campaign' => 'حملة ال1000 سفينة',
+        'export_excel' => 'تصدير إلى إكسل',
+        'bulk_delete' => 'حذف متعدد',
+        'select_all' => 'تحديد الكل',
+        'participants' => 'المشاركون',
+        'whatsapp_number' => 'رقم الواتساب',
+        'age' => 'العمر',
+        'questions' => 'الأسئلة',
+        'answers' => 'الإجابات',
+        'today' => 'اليوم',
+        'participant_info' => 'معلومات المشارك',
+        'metadata' => 'البيانات الوصفية',
+        'select_records' => 'يرجى تحديد السجلات المراد حذفها',
     ],
 ];
